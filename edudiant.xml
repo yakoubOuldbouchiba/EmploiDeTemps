@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<etudiant groupe="1" annee="2016">
+    <liste_salles>
+        <salle idsalle="4.101" capacite="20" type_salle="TD"/>
+        <salle idsalle="CC01" capacite="24" type_salle="TP"/>
+        <salle idsalle="4.103"  capacite="30" type_salle="TD"/>
+        <salle idsalle="4.203" capacite="42" type_salle="TD"/>
+        <salle idsalle="CC04" capacite="24" type_salle="TP"/>
+        <salle idsalle="CC02" capacite="26" type_salle="TP"/>
+        <salle idsalle="4.304" capacite="36" type_salle="TD"/>
+    </liste_salles>
+    <liste_profs>
+        <prof idprof="p243">
+            <nom>Toto</nom>
+            <prenom>Max</prenom>
+            <dpt>Informatique</dpt>
+            <tel>0102030405</tel>
+        </prof>
+        <prof idprof="p562">
+            <nom>Tutu</nom>
+            <prenom>Min</prenom>
+            <dpt>Mathématiques</dpt>
+            <tel>0506070809</tel>
+        </prof>
+        <prof idprof="p377">
+            <nom>Tata</nom>
+            <prenom>Moy</prenom>
+            <dpt>Informatique</dpt>
+            <tel>0123456789</tel>
+        </prof>
+    </liste_profs>
+    <types_creneaux>
+        <plage ordre="c1">
+            <hdeb>08:00:00</hdeb>
+            <hfin>09:30:00</hfin>
+        </plage>
+        <plage ordre="c2">
+            <hdeb>09:40:00</hdeb>
+            <hfin>11:10:00</hfin>
+        </plage>
+        <plage ordre="c3">
+            <hdeb>11:20:00</hdeb>
+            <hfin>12:50:00</hfin>
+        </plage>
+        <plage ordre="c4">
+            <hdeb>13:00:00</hdeb>
+            <hfin>14:30:00</hfin>
+        </plage>
+        <plage ordre="c5">
+            <hdeb>14:40:00</hdeb>
+            <hfin>16:10:00</hfin>
+        </plage>
+        <plage ordre="c6">
+            <hdeb>16:20:00</hdeb>
+            <hfin>17:50:00</hfin>
+        </plage>
+    </types_creneaux>
+    <liste_semaines>
+        <semaine num_semaine="s12">
+            <jour nomjour="lu" njour="04" mois="01">
+                <creneau nplage="c2" nsalle="4.103" nprof="p243">
+                    <type>C</type>
+                    <matiere>Applis Prog XML</matiere>
+                </creneau>
+                <creneau nplage="c3" nsalle="4.101" nprof="p243">
+                    <type>TD</type>
+                    <matiere>Applis Prog XML</matiere>
+                </creneau>
+                <creneau nplage="c4" nsalle="4.101" nprof="p243">
+                    <type>TD</type>
+                    <matiere>Applis Prog XML</matiere>
+                </creneau>
+            </jour>
+            <jour nomjour="me" njour="06" mois="01">
+                <creneau nplage="c1" nsalle="CC01" nprof="p377">
+                    <type>TP</type>
+                    <matiere>Projet PHP</matiere>
+                </creneau>
+                <creneau nplage="c2" nsalle="CC01" nprof="p377">
+                    <type>TP</type>
+                    <matiere>Projet PHP</matiere>
+                </creneau>
+                <creneau nplage="c3" nsalle="CC01" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Projet XML</matiere>
+                </creneau>
+                <creneau nplage="c5" nsalle="4.103">
+                    <matiere>Anglais</matiere>
+                </creneau>
+            </jour>
+            <jour nomjour="je" njour="14" mois="01">
+                <creneau nplage="c2" nsalle="CC01" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Projet XML</matiere>
+                </creneau>
+                <creneau nplage="c3" nsalle="CC01" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Projet XML</matiere>
+                </creneau>
+            </jour>
+            <jour nomjour="di" njour="17" mois="01">
+                <creneau nplage="c1" nsalle="4.101" nprof="p243">
+                    <type>C</type>
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+                <creneau nplage="c2" nsalle="4.101" nprof="p243">
+                    <type>TD</type>
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+                <creneau nplage="c5" nsalle="CC04" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+            </jour>
+        </semaine>
+        <semaine num_semaine="s13">
+            <jour nomjour="lu" njour="18" mois="01">
+                <creneau nsalle="4.101" nplage="c2" nprof="p243">
+                    <type>TD</type>
+                    <matiere>Applis PROG XML</matiere>
+                </creneau>
+                <creneau nsalle="CC04" nplage="c3" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Applis PROG XML</matiere>
+                </creneau>
+                <creneau nsalle="CC04" nplage="c4" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Applis PROG XML</matiere>
+                </creneau>
+            </jour>
+            <jour nomjour="ma" njour="19" mois="01">
+                <creneau nsalle="CC01" nplage="c3" nprof="p377">
+                    <type>TP</type>
+                    <matiere>J2EE</matiere>
+                </creneau>
+                <creneau nsalle="CC01" nplage="c4" nprof="p377">
+                    <type>TP</type>
+                    <matiere>J2EE</matiere>
+                </creneau>
+                <creneau nsalle="CC01" nplage="c5" nprof="p377">
+                    <type>TP</type>
+                    <matiere>J2EE</matiere>
+                </creneau>
+            </jour>
+            <jour nomjour="me" njour="27" mois="01">
+                <creneau nsalle="CC01" nplage="c1" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Projet XML</matiere>
+                </creneau>
+                <creneau nsalle="CC01" nplage="c2" nprof="p243">
+                    <type>TP</type>
+                    <matiere>Projet XML</matiere>
+                </creneau>
+                <creneau nsalle="4.101" nplage="c3">
+                    <matiere>BDD</matiere>
+                </creneau>
+                <creneau nsalle="4.101" nplage="c4">
+                    <matiere>BDD</matiere>
+                </creneau>
+                <creneau nsalle="4.304" nplage="c5" nprof="p243">
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+            </jour>
+            <jour nomjour="je" njour="28" mois="01">
+                <creneau nplage="c1" nsalle="4.101" nprof="p243">
+                    <type>C</type>
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+                <creneau nplage="c2" nsalle="4.101" nprof="p243">
+                    <type>TD</type>
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+                <creneau nplage="c5" nsalle="4.304" nprof="p243">
+                    <type>TD</type>
+                    <matiere>Dialectes XML</matiere>
+                </creneau>
+            </jour>
+        </semaine>
+    </liste_semaines>
+</etudiant>
