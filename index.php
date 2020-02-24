@@ -29,15 +29,15 @@
                 <form action="Result.php" method="get" class="col-lg-12">
                     <div class="mt-4 row">
                         <div class="col-lg-4">
-                            <input type="checkbox" id="global" name="way1" value="global">
+                            <input type="checkbox" id="global" name="way1" value="global" onclick="disableM_E()">
                             <label for="male">Global</label>
                         </div>
                         <div class="col-lg-4">
-                            <input type="checkbox" id="matiere" name="way2" value="matiere">
+                            <input type="checkbox" id="matiere" name="way2" value="matiere" onclick="disableGobale()">
                             <label for="female">Par matière</label><br>
                         </div>
                         <div class="col-lg-4">
-                            <input type="checkbox" id="enseignant" name="way3" value="enseignant">
+                            <input type="checkbox" id="enseignant" name="way3" value="enseignant" onclick="disableGobale()">
                             <label for="other">Par enseignant</label>
                         </div>
                     </div> 
@@ -78,11 +78,32 @@
                     </div> 
                     <div class="row">
                         <div class="col-md-4 offset-md-8 mt-4">
-                            <button type="submit" class="btn btn-outline-secondary col-md-4">Secondary</button>
+                            <button type="submit" class="btn btn-outline-secondary col-md-4">Afficher</button>
                         </div>    
                     <div>                       
                 </from> 
             </div>
         </div>
+        <script type="text/javascript">
+        	function disableGobale() {
+  				document.getElementById("global").disabled = true;
+  				if(document.getElementById("matiere").checked||document.getElementById("enseignant").checked)
+  				{
+  					document.getElementById("global").disabled = true;
+  				}else{
+					document.getElementById("global").disabled = false;
+  				}
+			}
+			function disableM_E() {
+  				if(document.getElementById("global").checked)
+  				{
+  					document.getElementById("matiere").disabled = true;
+  					document.getElementById("enseignant").disabled = true;
+  				}else{
+					document.getElementById("matiere").disabled = false;
+  					document.getElementById("enseignant").disabled = false;
+  				}
+			}
+        </script>
     </body>
 </html>

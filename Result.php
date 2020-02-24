@@ -54,8 +54,7 @@
                     echo    '</tr>';
                     echo '<tbody>';
             ?>
-            <?php
-                if($way_ensiegnant!=null && $way_metier!=null){
+             <?php
                     $nprofchercher = array_search($ensiegnant ,$FullNumProfs);
                     foreach($herbs as $key1 => $herb) {
                         echo'<tr class="'.$ordre[$key1]->nodeValue.'">';
@@ -68,74 +67,39 @@
                                     $nomProf=$xpath->query("//liste_profs/prof[@idprof='".($nprof[0]->value)."']/nom");
                                 }
                                 $salle =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nsalle");
-                                if(isset($type[0]->nodeValue) && ($Fidprofs[$nprofchercher]==$nprof[0]->nodeValue)&&($Xmatiere[0]->nodeValue==$metiere))
-                                echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
-                                else
-                                    echo"<td></td>";                    
-                        }
-                        echo"</tr>";
-                    }
-                }
-                else if($way_ensiegnant!=null){
-                    $nprofchercher = array_search($ensiegnant ,$FullNumProfs);
-                    foreach($herbs as $key1 => $herb) {
-                        echo'<tr class="'.$ordre[$key1]->nodeValue.'">';
-                        echo '<th scope="row">'.$herb->nodeValue.'</th>';
-    
-                        foreach($jours as $key3 => $jour){ 
-                                $type =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/type");
-                                $Xmatiere =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/matiere");
-                                $nprof =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nprof");
-                               if(isset($nprof[0]->value)){
-                                    $nomProf=$xpath->query("//liste_profs/prof[@idprof='".($nprof[0]->value)."']/nom");
-                                }
-                                $salle =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nsalle");
-                                if(isset($type[0]->nodeValue) && ($Fidprofs[$nprofchercher]==$nprof[0]->nodeValue))
+                                /*Par ensiegnant et metier */
+                                if($way_ensiegnant!=null && $way_metier!=null){
+	                                if(isset($type[0]->nodeValue) && ($Fidprofs[$nprofchercher]==$nprof[0]->nodeValue)&&($Xmatiere[0]->nodeValue==$metiere))
+	                                echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
+	                                else
+	                                    echo"<td></td>";  
+                            	}
+                            	/*Par metier */
+                            	else if($way_metier!=null){
+                            		if(isset($type[0]->nodeValue)&& $Xmatiere[0]->nodeValue==$metiere)
+                            		    echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
+                            		else
+                            		    echo"<td></td>"; 
+	                            }  
+	                            /*Par ensiegnant  */
+	                            else if($way_ensiegnant!=null){
+	                            	if(isset($type[0]->nodeValue) && ($Fidprofs[$nprofchercher]==$nprof[0]->nodeValue))
                                     echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
-                                else
+                               		else
                                     echo"<td></td>";                    
+
+	                            }
+	                            //Global
+	                            else{
+	                            	if(isset($type[0]->nodeValue))
+                                	echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
+	                                else
+	                                echo"<td></td>";
+	                            }
+                
                         }
                         echo"</tr>";
-                    }
-                }
-                else if($way_metier !=null){
-                    foreach($herbs as $key1 => $herb) {
-                        echo'<tr class="'.$ordre[$key1]->nodeValue.'">';
-                        echo '<th scope="row">'.$herb->nodeValue.'</th>';
-                        foreach($jours as $key3 => $jour){ 
-                                $type =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/type");
-                                $Xmatiere =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/matiere");
-                                $nprof =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nprof");
-                               if(isset($nprof[0]->value))
-                                $nomProf=$xpath->query("//liste_profs/prof[@idprof='".($nprof[0]->value)."']/nom");
-                                $salle =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nsalle");
-                                
-                                if(isset($type[0]->nodeValue)&& $Xmatiere[0]->nodeValue==$metiere)
-                                    echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
-                                else
-                                    echo"<td></td>";                    
-                        }
-                        echo"</tr>";
-                    }
-                }
-                else{
-                    foreach($herbs as $key1 => $herb) {
-                        echo'<tr class="'.$ordre[$key1]->nodeValue.'">';
-                        echo '<th scope="row">'.$herb->nodeValue.'</th>';
-                        foreach($jours as $key3 => $jour){ 
-                                $type =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/type");
-                                $Xmatiere =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/matiere");
-                                $nprof =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nprof");
-                               if(isset($nprof[0]->value))
-                                $nomProf=$xpath->query("//liste_profs/prof[@idprof='".($nprof[0]->value)."']/nom");
-                                $salle =$xpath->query("//liste_semaines/semaine[@num_semaine ='".$semaine."']/jour[@nomjour='".$jours[$key3] ."']/creneau[@nplage='".$ordre[$key1]->nodeValue."']/@nsalle");
-                                if(isset($type[0]->nodeValue))
-                                echo"<td>".$type[0]->nodeValue."-".$Xmatiere[0]->nodeValue."<br>".($nomProf[0]->nodeValue)."-".($salle[0]->value)."</td>";
-                                else
-                                echo"<td></td>";                    
-                        }
-                        echo"</tr>";
-                    }
+                    
                 }
             ?>
             <?php
